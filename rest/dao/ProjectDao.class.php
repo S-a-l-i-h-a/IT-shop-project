@@ -8,10 +8,10 @@ class TodoDao{
   * constructor of dao class
   */
   public function __construct(){
-    $servername = "localhost";
-    $username = "todo";
-    $password = "todo";
-    $schema = "todo";
+    $servername = "sql.freedb.tech";
+    $username = "freedb_IT-shop";
+    $password = "*fU%3EmTt!qz@4r";
+    $schema = "freed_freedb_root123";
     $this->conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
     // set the PDO error mode to exception
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
