@@ -1,6 +1,6 @@
 <?php
 
-class TodoDao{
+class ProjectDao{
 
   private $conn;
 
@@ -12,8 +12,12 @@ class TodoDao{
     $username = "freedb_IT-shop";
     $password = "*fU%3EmTt!qz@4r";
     $schema = "freed_freedb_root123";
-    $this->conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
+    $this->conn = new PDO("mysql:host=localhost;dbname=test", "root", "123456");
     // set the PDO error mode to exception
+
+
+      echo 'connected';
+
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
