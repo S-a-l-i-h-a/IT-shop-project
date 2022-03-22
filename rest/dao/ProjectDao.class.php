@@ -8,11 +8,11 @@ class ProjectDao{
   * constructor of dao class
   */
   public function __construct(){
-    $servername = "sql.freedb.tech";
-    $username = "freedb_IT-shop";
-    $password = "*fU%3EmTt!qz@4r";
-    $schema = "freedb_freedb_root123";
-    $this->conn = new PDO("mysql:host=sql.freedb.tech;dbname=freedb_freedb_root123", "freedb_IT-shop", "*fU%3EmTt!qz@4r");
+    $servername = "sql11.freemysqlhosting.net";
+    $username = "sql11480890";
+    $password = "MH8WN3j8qs";
+    $schema = "sql11480890";
+    $this->conn = new PDO("mysql:host=$servername;dbname= $schema", "$username", "$password");
     // set the PDO error mode to exception
 
 
