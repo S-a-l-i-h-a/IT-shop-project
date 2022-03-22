@@ -12,13 +12,8 @@ class ProjectDao{
     $username = "sql11480890";
     $password = "MH8WN3j8qs";
     $schema = "sql11480890";
-    $this->conn = new PDO("mysql:host=sql11.freemysqlhosting.net;dbname= sql11480890", "sql11480890", "MH8WN3j8qs");
+    $this->conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
     // set the PDO error mode to exception
-    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-      echo 'connected';
-
     $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
@@ -31,12 +26,21 @@ class ProjectDao{
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  public function get_by_id($id){
+    $stmt = $this->conn->prepare("SELECT * FROM sql11480890 WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return reset($result);
+  }
+
   /**
   * Method used to add todo to the database
   */
-  public function add($description, $created){
-    $stmt = $this->conn->prepare("INSERT INTO todos (description, created) VALUES (:description, :created)");
-    $stmt->execute(['description' => $description, 'created' => $created]);
+  public function add($sql11480890){
+    $stmt = $this->conn->prepare("INSERT INTO sql11480890 (description, created) VALUES (:description, :created)");
+    $stmt->execute($sql11480890);
+    $sql11480890['id'] = $this->conn->lastInsertId();
+    return $sql11480890;
   }
 
   /**
@@ -51,9 +55,10 @@ class ProjectDao{
   /**
   * Update todo record
   */
-  public function update($id, $description, $created){
-    $stmt = $this->conn->prepare("UPDATE todos SET description=:description, created=:created WHERE id=:id");
-    $stmt->execute(['id' => $id, 'description' => $description, 'created' => $created]);
+  public function update($sql11480890){
+    $stmt = $this->conn->prepare("UPDATE sql11480890 SET description=:description, created=:created WHERE id=:id");
+    $stmt->execute($sql11480890);
+    return $sql11480890;
   }
 
 }
