@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 require_once("rest/dao/ProjectDao.class.php");
  $dao = new ProjectDao();
 
- $op = $_REQUEST['op'];
+$op = $_REQUEST['op'];
 
 switch ($op) {
   case 'insert':
