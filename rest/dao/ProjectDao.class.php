@@ -14,6 +14,7 @@ class ProjectDao{
     $schema = "sql11480890";
     $this->conn = new PDO("mysql:host=sql11.freemysqlhosting.net;dbname= sql11480890", "sql11480890", "MH8WN3j8qs");
     // set the PDO error mode to exception
+    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
       echo 'connected';
@@ -25,7 +26,7 @@ class ProjectDao{
   * Method used to read all todo objects from database
   */
   public function get_all(){
-    $stmt = $this->conn->prepare("SELECT * FROM todos");
+    $stmt = $this->conn->prepare("SELECT * FROM sql11480890");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -42,7 +43,7 @@ class ProjectDao{
   * Delete todo record from the database
   */
   public function delete($id){
-    $stmt = $this->conn->prepare("DELETE FROM todos WHERE id=:id");
+    $stmt = $this->conn->prepare("DELETE FROM sql11480890 WHERE id=:id");
     $stmt->bindParam(':id', $id); // SQL injection prevention
     $stmt->execute();
   }
