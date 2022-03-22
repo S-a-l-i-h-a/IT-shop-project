@@ -12,7 +12,7 @@ class ProjectDao{
     $username = "sql11480890";
     $password = "MH8WN3j8qs";
     $schema = "sql11480890";
-    $this->conn = new PDO("mysql:host=$servername;dbname= $schema", "$username", "$password");
+    $this->conn = new PDO("mysql:host=sql11.freemysqlhosting.net;dbname= sql11480890", "sql11480890", "MH8WN3j8qs");
     // set the PDO error mode to exception
 
 
