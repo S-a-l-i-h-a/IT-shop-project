@@ -21,13 +21,13 @@ class ProjectDao{
   * Method used to read all todo objects from database
   */
   public function get_all(){
-    $stmt = $this->conn->prepare("SELECT * FROM Customers");
+    $stmt = $this->conn->prepare("SELECT * FROM Products");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function get_by_id($id){
-    $stmt = $this->conn->prepare("SELECT * FROM Customers WHERE id = :id");
+    $stmt = $this->conn->prepare("SELECT * FROM Products WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return reset($result);
