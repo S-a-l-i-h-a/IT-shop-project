@@ -21,13 +21,13 @@ class ProjectDao{
   * Method used to read all todo objects from database
   */
   public function get_all(){
-    $stmt = $this->conn->prepare("SELECT * FROM sql11480890");
+    $stmt = $this->conn->prepare("SELECT * FROM Customers");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function get_by_id($id){
-    $stmt = $this->conn->prepare("SELECT * FROM sql11480890 WHERE id = :id");
+    $stmt = $this->conn->prepare("SELECT * FROM Customers WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return reset($result);
@@ -37,17 +37,17 @@ class ProjectDao{
   * Method used to add todo to the database
   */
   public function add($sql11480890){
-    $stmt = $this->conn->prepare("INSERT INTO sql11480890 (description, created) VALUES (:description, :created)");
-    $stmt->execute($sql11480890);
-    $sql11480890['id'] = $this->conn->lastInsertId();
-    return $sql11480890;
+    $stmt = $this->conn->prepare("INSERT INTO Customers (description, created) VALUES (:description, :created)");
+    $stmt->execute($Customers);
+    $Customers['id'] = $this->conn->lastInsertId();
+    return $Customers;
   }
 
   /**
   * Delete todo record from the database
   */
   public function delete($id){
-    $stmt = $this->conn->prepare("DELETE FROM sql11480890 WHERE id=:id");
+    $stmt = $this->conn->prepare("DELETE FROM Customers WHERE id=:id");
     $stmt->bindParam(':id', $id); // SQL injection prevention
     $stmt->execute();
   }
@@ -55,10 +55,10 @@ class ProjectDao{
   /**
   * Update todo record
   */
-  public function update($sql11480890){
-    $stmt = $this->conn->prepare("UPDATE sql11480890 SET description=:description, created=:created WHERE id=:id");
-    $stmt->execute($sql11480890);
-    return $sql11480890;
+  public function update($Customers){
+    $stmt = $this->conn->prepare("UPDATE Customers SET description=:description, created=:created WHERE id=:id");
+    $stmt->execute($Customers);
+    return $Customers;
   }
 
 }
