@@ -36,7 +36,7 @@ class ProjectDao{
   /**
   * Method used to add todo to the database
   */
-  public function add($sql11480890){
+  public function add($Customers){
     $stmt = $this->conn->prepare("INSERT INTO Customers (description, created) VALUES (:description, :created)");
     $stmt->execute($Customers);
     $Customers['id'] = $this->conn->lastInsertId();

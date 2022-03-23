@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require 'vendor/autoload.php';
-require_once 'rest/dao/ProjectDao.class.php';
+require_once 'dao/ProjectDao.class.php';
 
 Flight::route('/', function (){
   echo 'Hello Worlddddd';
@@ -20,6 +20,7 @@ Flight::register('ProjectDao', 'ProjectDao');
 */
 Flight::route('GET /Customers', function(){
   Flight::json(Flight::ProjectDao()->get_all());
+  echo "Hi I am here";
 });
 
 /**
