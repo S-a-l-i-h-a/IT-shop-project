@@ -21,13 +21,13 @@ class ProjectDao{
   * Method used to read all todo objects from database
   */
   public function get_all(){
-    $stmt = $this->conn->prepare("SELECT * FROM Products");
+    $stmt = $this->conn->prepare("SELECT * FROM Customers");
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function get_by_id($id){
-    $stmt = $this->conn->prepare("SELECT * FROM Products WHERE id = :id");
+    $stmt = $this->conn->prepare("SELECT * FROM Customers WHERE id = :id");
     $stmt->execute(['id' => $id]);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     return reset($result);
@@ -37,7 +37,7 @@ class ProjectDao{
   * Method used to add todo to the database
   */
   public function add($Customers){
-    $stmt = $this->conn->prepare("INSERT INTO Customers (description, created) VALUES (:description, :created)");
+    $stmt = $this->conn->prepare("INSERT INTO Customers (customer_name, customer_surname, customer_phone, customer_email, customer_origin) VALUES (:customer_name, :customer_surname, :customer_phone,:customer_email, :customer_origin)");
     $stmt->execute($Customers);
     $Customers['id'] = $this->conn->lastInsertId();
     return $Customers;
@@ -56,7 +56,7 @@ class ProjectDao{
   * Update todo record
   */
   public function update($Customers){
-    $stmt = $this->conn->prepare("UPDATE Customers SET description=:description, created=:created WHERE id=:id");
+    $stmt = $this->conn->prepare("UPDATE Customers SET customer_email=:customer_email WHERE id=:id");
     $stmt->execute($Customers);
     return $Customers;
   }

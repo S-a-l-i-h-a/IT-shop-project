@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 require_once 'dao/ProjectDao.class.php';
 
 Flight::route('/', function (){
@@ -33,14 +33,14 @@ Flight::route('GET /Customers/@id', function($id){
 /**
 * add todo
 */
-Flight::route('POST /Products', function(){
+Flight::route('POST /Customers', function(){
   Flight::json(Flight::ProjectDao()->add(Flight::request()->data->getData()));
 });
 
 /**
 * update todo
 */
-Flight::route('PUT /Products/@id', function($id){
+Flight::route('PUT /Customers/@id', function($id){
   $data = Flight::request()->data->getData();
   $data['id'] = $id;
   Flight::json(Flight::ProjectDao()->update($data));
@@ -49,13 +49,10 @@ Flight::route('PUT /Products/@id', function($id){
 /**
 * delete todo
 */
-Flight::route('DELETE /Products/@id', function($id){
+Flight::route('DELETE /Customers/@id', function($id){
   Flight::ProjectDao()->delete($id);
   Flight::json(["message" => "deleted"]);
 });
 
 Flight::start();
-?>
-
-
 ?>
