@@ -20,7 +20,6 @@ Flight::register('ProjectDao', 'ProjectDao');
 */
 Flight::route('GET /Customers', function(){
   Flight::json(Flight::ProjectDao()->get_all());
-  echo "Hi I am here";
 });
 
 /**
