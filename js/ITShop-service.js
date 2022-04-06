@@ -49,7 +49,7 @@ var ITShopService = {
       $.ajax({
         url: 'rest/Customers',
         type: 'POST',
-        data: JSON.stringify(todo),
+        data: JSON.stringify(Customers),
         contentType: "application/json",
         dataType: "json",
         success: function(result) {
