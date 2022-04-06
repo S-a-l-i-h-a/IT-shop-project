@@ -51,10 +51,10 @@
 <script src="js/jquery-3.6.0.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
-<script src="js/ITShopService.js"></script>
+<script src="js/ITShop-service.js"></script>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -64,10 +64,13 @@
       <div class="modal-body">
         <input id="id" type="hidden" />
         <input id="customer_name" type="text" />
+        <input id="customer_surname" type="text" />
+        <input id="customer_email" type="text" />
+        <input id="customer_origin" type="text" />
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary save-todo-button" onclick="ITShopService.update">Save changes</button>
+        <button type="button" class="btn btn-primary save-todo-button" onclick="ITShopService.update()">Save changes</button>
       </div>
     </div>
   </div>
@@ -77,7 +80,7 @@
 <div class="modal fade" id="addToDoModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form id="addToDoForm">
+      <form id="addShopForm">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -102,7 +105,7 @@
 </div>
 
 <script>
-  ITShopService.init();
+  ITShopService.list();
 </script>
 
 </html>
