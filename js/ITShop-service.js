@@ -39,8 +39,8 @@ var ITShopService = {
       $.get('rest/Customers/'+id, function(data){
         $("#customer_email").val(data.customer_email);
         $("#customer_name").val(data.customer_name);
-        //$("#customer_surname").val(data.customer_surname);
-        //$("#customer_origin").val(data.customer_origin);
+        $("#customer_surname").val(data.customer_surname);
+        $("#customer_origin").val(data.customer_origin);
         $("#id").val(data.id);
         $("#editModal").modal("show");
         $('.Customers-button').attr('disabled', false);

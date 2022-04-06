@@ -56,7 +56,7 @@ class ProjectDao{
   * Update todo record
   */
   public function update($Customers){
-    $stmt = $this->conn->prepare("UPDATE Customers SET customer_email=:customer_email WHERE id=:id");
+    $stmt = $this->conn->prepare("UPDATE Customers SET customer_email=:customer_email, customer_name=:customer_name, customer_surname=:customer_surname, customer_origin=:customer_origin WHERE id=:id");
     $stmt->execute($Customers);
     return $Customers;
   }
