@@ -1,6 +1,7 @@
 <?php
+require_once __DIR__.'/BaseDao.class.php';
 
-class ProjectDao extends BaseDao {
+class CustomerDao extends BaseDao{
 
   /**
   * constructor of dao class
@@ -9,8 +10,6 @@ class ProjectDao extends BaseDao {
     parent::__construct("Customers");
   }
 
-  public function __construct(){
-    parent::__construct("Products");
-  }
+}
 
 ?>
