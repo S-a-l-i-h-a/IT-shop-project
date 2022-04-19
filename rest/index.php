@@ -20,6 +20,6 @@ require_once 'routes/CustomerRoutes.php';
 require_once 'routes/ProductRoutes.php';
 
 
-
 Flight::start();
+
 ?>
