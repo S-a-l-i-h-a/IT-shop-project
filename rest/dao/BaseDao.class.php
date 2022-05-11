@@ -5,19 +5,7 @@ class BaseDao{
 
   private $table_name;
 
-  /**
-  * constructor of dao class
-  */
-  public function __construct($table_name){
-    $this->table_name = $table_name;
-    $servername = "sql11.freemysqlhosting.net";
-    $username = "sql11482492";
-    $password = "NWwvgMCmQ4";
-    $schema = "sql11482492";
-    $this->conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
-    // set the PDO error mode to exception
-    $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  }
+
 
   /**
   * Method used to read all todo objects from database
