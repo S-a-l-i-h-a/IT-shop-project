@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-require '../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 require_once 'dao/BaseDao.class.php';
 
 require_once 'services/CustomerService.class.php';
