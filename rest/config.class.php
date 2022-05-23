@@ -3,16 +3,16 @@
 class Config {
 
   public static function DB_HOST(){
-    return Config::get_env("DB_HOST", "localhost");
+    return Config::get_env("DB_HOST", "itshop-database-do-user-11387988-0.b.db.ondigitalocean.com");
   }
   public static function DB_USERNAME(){
-    return Config::get_env("DB_USERNAME", "root");
+    return Config::get_env("DB_USERNAME", "doadmin");
   }
   public static function DB_PASSWORD(){
-    return Config::get_env("DB_PASSWORD", "123456");
+    return Config::get_env("DB_PASSWORD", "AVNS_98dB7utw5EnjXSm");
   }
   public static function DB_SCHEME(){
-    return Config::get_env("DB_SCHEME", "ITShop");
+    return Config::get_env("DB_SCHEME", "defaultdb");
   }
   public static function DB_PORT(){
     return Config::get_env("DB_PORT", "25060");
