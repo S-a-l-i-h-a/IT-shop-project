@@ -9,6 +9,8 @@ Flight::route('POST /login', function(){
     $login = Flight::request()->data->getData();
     $user = Flight::userDao()->get_user_by_email($login['email']);
     Flight::json(['token' => $user]);
+    print_r($user);
+    die;
     if (isset($user['id'])){
       if($user['password'] == $login['password']){
         unset($user['password']);
