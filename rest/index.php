@@ -19,6 +19,13 @@ Flight::register('userDao', 'UserDao');
 Flight::register('customerService', 'CustomerService');
 Flight::register('productService', 'ProductService');
 
+/*REST API documentation endpoint*/
+Flight::route('GET /docs.json',function(){
+  $openapi= \OpenApi\scan('routes');
+  header('Content-Type: application/json');
+  echo $openapi->toJson();
+});
+
 
 // middleware method for login
 Flight::route('/*', function(){
