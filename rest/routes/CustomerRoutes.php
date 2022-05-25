@@ -8,7 +8,7 @@
 /**
  * @OA\Get(path="/Customers", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
  *         summary="Return all user notes from the API. ",
- *         @OA\Response( response=200, description="List of notes.")
+ *         @OA\Response( response=200, description="List of customers.")
  * )
  */
 Flight::route('GET /Customers', function(){
@@ -21,7 +21,7 @@ Flight::route('GET /Customers', function(){
 /**
  * @OA\Get(path="/Customers/{id}", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Parameter(in="path", name="id", example=1, description="Id of note"),
- *     @OA\Response(response="200", description="Fetch individual note")
+ *     @OA\Response(response="200", description="Fetch individual customers")
  * )
  */
 Flight::route('GET /Customers/@id', function($id){
