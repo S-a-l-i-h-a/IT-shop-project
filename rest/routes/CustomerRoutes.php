@@ -4,6 +4,13 @@
 /**
 * List all todos
 */
+
+/**
+ * @OA\Get(path="/Customers", tags={"todo"}, security={{"ApiKeyAuth": {}}},
+ *         summary="Return all user notes from the API. ",
+ *         @OA\Response( response=200, description="List of notes.")
+ * )
+ */
 Flight::route('GET /Customers', function(){
   Flight::json(Flight::customerService()->get_all());
 });
