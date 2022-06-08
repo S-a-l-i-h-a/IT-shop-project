@@ -4,7 +4,7 @@ var UserService = {
     if (token){
       window.location.replace("index.html");
     }
-    $('#login-form').validate({
+    $('.login').validate({
       submitHandler: function(form) {
         var entity = Object.fromEntries((new FormData(form)).entries());
         UserService.login(entity);
@@ -21,7 +21,7 @@ var UserService = {
       success: function(result) {
         console.log(result);
         localStorage.setItem("token", result.token);
-        window.location.replace("index.html");
+        window.location.replace("adminpage.html");
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         toastr.error(XMLHttpRequest.responseJSON.message);
@@ -30,6 +30,7 @@ var UserService = {
   },
 
   logout: function(){
+    console.log ("BILO STA");
     localStorage.clear();
     window.location.replace("login.html");
   },

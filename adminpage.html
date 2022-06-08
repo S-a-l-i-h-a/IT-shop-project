@@ -77,7 +77,7 @@
       </nav><!-- .navbar -->
 
       <a href="#about" class="get-started-btn scrollto">Get Started</a>
-      <a href="#logout" class="logout-btn scrollto">Logout</a>
+      <button onClick="UserService.logout()" class="logout-btn scrollto">Logout</button>
 
 
     </div>
@@ -821,12 +821,20 @@
   <script src="theme/swiper/swiper-bundle.min.js"></script>
   <script src="theme/php-email-form/validate.js"></script>
 
+
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+  <script src = "js/user-service.js"></script>
 
 
 </body>
 
+<script>
 
+  var token = localStorage.getItem("token");
+  if (!token){
+    window.location.replace("login.html");
+  }
+</script>
 
 </html>

@@ -7,10 +7,10 @@ use Firebase\JWT\Key;
 */
 Flight::route('POST /login', function(){
     $login = Flight::request()->data->getData();
-    $user = Flight::userDao()->get_user_by_email($login['email']);
+    $user = Flight::userDao()->get_user_by_username($login['username']);
 
     if (isset($user['id'])){
-      if($user['customer_password'] == $login['password']){
+      if($user['password'] == $login['password']){
         unset($user['password']);
 
         $jwt = JWT::encode($user, Config::JWT_SECRET(), 'HS256');
