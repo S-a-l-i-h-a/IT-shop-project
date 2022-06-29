@@ -7,7 +7,7 @@
 
 /**
  * @OA\Get(path="/Customers", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
- *         summary="Return all user notes from the API. ",
+ *         summary="Return all customers from the database ",
  *         @OA\Response( response=200, description="List of customers.")
  * )
  */
@@ -31,6 +31,12 @@ Flight::route('GET /Customers/@id', function($id){
 /**
 * add todo
 */
+/**
+ * @OA\POST(path="/Customers/", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
+ *     @OA\Parameter(in="path", name="id", example=1, description="Submiting new data about customers"),
+ *     @OA\Response(response="200", description="New customer data")
+ * )
+ */
 Flight::route('POST /Customers', function(){
   Flight::json(Flight::customerService()->add(Flight::request()->data->getData()));
 });
