@@ -1,5 +1,11 @@
 <?php
 require_once __DIR__.'/../config.class.php';
+
+/**
+*
+*The main class for the interaction with database.
+*All other DAO classes are inheriting this class. 
+*/
 class BaseDao{
 
   private $conn;
