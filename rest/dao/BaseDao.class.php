@@ -20,9 +20,6 @@ class BaseDao{
     $this->conn = new PDO("mysql:host=$servername;dbname=$schema;port=$port", $username, $password);
 
   }
-
-
-
   /**
   * Method used to read all todo objects from database
   */
@@ -47,6 +44,10 @@ class BaseDao{
     $stmt->bindParam(':id', $id); // SQL injection prevention
     $stmt->execute();
   }
+
+  /**
+  * Insert todo record into the database
+  */
 
   public function add($entity){
     $query = "INSERT INTO ".$this->table_name." (";
@@ -80,6 +81,9 @@ class BaseDao{
     $stmt->execute($entity);
   }
 
+  /**
+  * these are executing any kind of sql statement on the db, with any type of parameters
+  */
   protected function query($query, $params){
     $stmt = $this->conn->prepare($query);
     $stmt->execute($params);
