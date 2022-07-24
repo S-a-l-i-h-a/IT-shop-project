@@ -73,7 +73,7 @@ Flight::route('POST /products', function(){
 });
 
 /**
-* update notes
+* update products
 */
 
 
@@ -86,10 +86,10 @@ Flight::route('POST /products', function(){
 *     @OA\RequestBody(description="Basic product info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
-*           @OA\Property(property="id", type="integer", example="0",	description="ID of the product"),
-*    				@OA\Property(property="product_name", type="string", example="HP 2034",	description="Name of the product"),
+*           @OA\Property(property="id", type="integer", example="2",	description="ID of the product"),
+*    				@OA\Property(property="product_name", type="string", example="HP",	description="Name of the product"),
 *    				@OA\Property(property="product_type", type="string", example="Laptop",	description="Type of the product" ),
-*           @OA\Property(property="product_price", type="string", example="780",	description="Price of the product" ),
+*           @OA\Property(property="product_price", type="string", example="300",	description="Price of the product" ),
 *
 *        )
 *     )),
@@ -109,7 +109,7 @@ Flight::route('PUT /roducts/@id', function($id){
 });
 
 /**
-* delete notes
+* delete products
 */
 /**
 * @OA\Delete(
