@@ -2,7 +2,7 @@
 // CRUD operations for todos entity
 
 /**
-* List all todos
+* List all customers
 */
 
 /**
@@ -16,11 +16,11 @@ Flight::route('GET /Customers', function(){
 });
 
 /**
-* List invidiual todo
+* List invidiual customers
 */
 /**
  * @OA\Get(path="/Customers/{id}", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
- *     @OA\Parameter(in="path", name="id", example=1, description="Id of note"),
+ *     @OA\Parameter(in="path", name="id", example=1, description="Id of customers"),
  *     @OA\Response(response="200", description="Fetch individual customers")
  * )
  */
@@ -28,29 +28,91 @@ Flight::route('GET /Customers/@id', function($id){
   Flight::json(Flight::customerService()->get_by_id($id));
 });
 
-/**
-* add todo
+/*
+* add customers
 */
 /**
- * @OA\POST(path="/Customers/", tags={"Customers"}, security={{"ApiKeyAuth": {}}},
- *     @OA\Parameter(in="path", name="id", example=1, description="Submiting new data about customers"),
- *     @OA\Response(response="200", description="New customer data")
- * )
- */
+* @OA\Post(
+*     path="/Customers", security={{"ApiKeyAuth": {}}},
+*     description="Add customers",
+*     tags={"Customers"},
+*     @OA\RequestBody(description="Basic customer info", required=true,
+*       @OA\MediaType(mediaType="application/json",
+*    			@OA\Schema(
+*    				@OA\Property(property="Name", type="string", example="test",	description="Name of the customer"),
+*    				@OA\Property(property="Surname", type="string", example="test",	description="Surname of the customer" ),
+*           @OA\Property(property="Email", type="string", example="test@gamil.com",	description="Email of the customer" ),
+*           @OA\Property(property="Origin", type="string", example="test@gamil.com",	description="Where customer is coming from" ),
+*           @OA\Property(property="Password", type="integer", example="1234",	description="Password of the customer" ),
+*        )
+*     )),
+*     @OA\Response(
+*         response=200,
+*         description="Customer has been created"
+*     ),
+*     @OA\Response(
+*         response=500,
+*         description="Error"
+*     )
+* )
+*/
 Flight::route('POST /Customers', function(){
   Flight::json(Flight::customerService()->add(Flight::request()->data->getData()));
 });
 
+/*
+* update customers
+*/
+
 /**
-* update todo
+* @OA\Put(
+*     path="/Customers/{id}", security={{"ApiKeyAuth": {}}},
+*     description="Update customer data",
+*     tags={"Customers"},
+*     @OA\Parameter(in="path", name="id", example=1, description="Note ID"),
+*     @OA\RequestBody(description="Basic customer info", required=true,
+*       @OA\MediaType(mediaType="application/json",
+*    			@OA\Schema(
+*    				@OA\Property(property="Name", type="string", example="test",	description="Name of the customer"),
+*    				@OA\Property(property="Surname", type="string", example="test",	description="Surname of the customer" ),
+*           @OA\Property(property="Email", type="string", example="test@gamil.com",	description="Email of the customer" ),
+*           @OA\Property(property="Origin", type="string", example="Sarajevo",	description="Where customer is coming from" ),
+*           @OA\Property(property="Password", type="integer", example="1234",	description="Password of the customer" ),
+*        )
+*     )),
+*     @OA\Response(
+*         response=200,
+*         description="Customer data has been updated"
+*     ),
+*     @OA\Response(
+*         response=500,
+*         description="Error"
+*     )
+* )
 */
 Flight::route('PUT /Customers/@id', function($id){
   $data = Flight::request()->data->getData();
   Flight::json(Flight::customerService()->update($id, $data));
 });
 
+/*
+* delete customers
+*/
 /**
-* delete todo
+* @OA\Delete(
+*     path="/Customers/{id}", security={{"ApiKeyAuth": {}}},
+*     description="Soft delete customer data",
+*     tags={"Customers"},
+*     @OA\Parameter(in="path", name="id", example=1, description="Customer ID"),
+*     @OA\Response(
+*         response=200,
+*         description="Customer deleted"
+*     ),
+*     @OA\Response(
+*         response=500,
+*         description="Error"
+*     )
+* )
 */
 Flight::route('DELETE /Customers/@id', function($id){
   Flight::customerService()->delete($id);
