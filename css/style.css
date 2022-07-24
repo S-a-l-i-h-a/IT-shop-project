@@ -146,6 +146,17 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 #  Get Startet Button
 --------------------------------------------------------------*/
+.black{
+  color: #0000;
+  border-radius: 4px;
+  padding: 7px 25px 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+
+}
+
 .get-started-btn {
   color: #fff;
   border-radius: 4px;
