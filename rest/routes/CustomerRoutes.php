@@ -39,11 +39,12 @@ Flight::route('GET /Customers/@id', function($id){
 *     @OA\RequestBody(description="Basic customer info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
-*    				@OA\Property(property="Name", type="string", example="test",	description="Name of the customer"),
-*    				@OA\Property(property="Surname", type="string", example="test",	description="Surname of the customer" ),
-*           @OA\Property(property="Email", type="string", example="test@gamil.com",	description="Email of the customer" ),
-*           @OA\Property(property="Origin", type="string", example="test@gamil.com",	description="Where customer is coming from" ),
-*           @OA\Property(property="Password", type="integer", example="1234",	description="Password of the customer" ),
+*           @OA\Property(property="id", type="integer", example="2",	description="Name of the customer"),
+*    				@OA\Property(property="customer_name", type="string", example="test",	description="Name of the customer"),
+*    				@OA\Property(property="customer_surname", type="string", example="test",	description="Surname of the customer" ),
+*           @OA\Property(property="customer_email", type="string", example="test@gamil.com",	description="Email of the customer" ),
+*           @OA\Property(property="customer_origin", type="string", example="Sarajevo",	description="Where customer is coming from" ),
+*           @OA\Property(property="customer_password", type="integer", example="1234",	description="Password of the customer" ),
 *        )
 *     )),
 *     @OA\Response(
@@ -73,11 +74,11 @@ Flight::route('POST /Customers', function(){
 *     @OA\RequestBody(description="Basic customer info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
-*    				@OA\Property(property="Name", type="string", example="test",	description="Name of the customer"),
-*    				@OA\Property(property="Surname", type="string", example="test",	description="Surname of the customer" ),
-*           @OA\Property(property="Email", type="string", example="test@gamil.com",	description="Email of the customer" ),
-*           @OA\Property(property="Origin", type="string", example="Sarajevo",	description="Where customer is coming from" ),
-*           @OA\Property(property="Password", type="integer", example="1234",	description="Password of the customer" ),
+*    				@OA\Property(property="customer_name", type="string", example="test",	description="Name of the customer"),
+*    				@OA\Property(property="customer_surname", type="string", example="test",	description="Surname of the customer" ),
+*           @OA\Property(property="customer_email", type="string", example="test@gamil.com",	description="Email of the customer" ),
+*           @OA\Property(property="customer_origin", type="string", example="Sarajevo",	description="Where customer is coming from" ),
+*           @OA\Property(property="customer_password", type="integer", example="1234",	description="Password of the customer" ),
 *        )
 *     )),
 *     @OA\Response(

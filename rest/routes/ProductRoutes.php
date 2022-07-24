@@ -6,12 +6,12 @@
 * List all products
 */
 /**
- * @OA\Get(path="/Products", tags={"Products"}, security={{"ApiKeyAuth": {}}},
+ * @OA\Get(path="/products", tags={"Products"}, security={{"ApiKeyAuth": {}}},
  *         summary="Return all products from the database ",
  *         @OA\Response( response=200, description="List of products.")
  * )
  */
-Flight::route('GET /Products', function(){
+Flight::route('GET /products', function(){
   Flight::json(Flight::productService()->get_all());
 });
 
@@ -19,12 +19,12 @@ Flight::route('GET /Products', function(){
 * List invidiual products
 */
 /**
- * @OA\Get(path="/Products/{id}", tags={"Products"}, security={{"ApiKeyAuth": {}}},
+ * @OA\Get(path="/products/{id}", tags={"Products"}, security={{"ApiKeyAuth": {}}},
  *     @OA\Parameter(in="path", name="id", example=1, description="Id of product"),
  *     @OA\Response(response="200", description="Fetch individual products")
  * )
  */
-Flight::route('GET /Products/@id', function($id){
+Flight::route('GET /products/@id', function($id){
   Flight::json(Flight::productService()->get_by_id($id));
 });
 
@@ -33,32 +33,8 @@ Flight::route('GET /Products/@id', function($id){
 * List invidiual note products
 */
 
-/**
-* @OA\Post(
-*     path="/Products", security={{"ApiKeyAuth": {}}},
-*     description="Add products",
-*     tags={"Products"},
-*     @OA\RequestBody(description="Basic customer info", required=true,
-*       @OA\MediaType(mediaType="application/json",
-*    			@OA\Schema(
-*    				@OA\Property(property="Name", type="string", example="test",	description="Name of the customer"),
-*    				@OA\Property(property="Surname", type="string", example="test",	description="Surname of the customer" ),
-*           @OA\Property(property="Email", type="string", example="test@gamil.com",	description="Email of the customer" ),
-*           @OA\Property(property="Origin", type="string", example="test@gamil.com",	description="Where customer is coming from" ),
-*           @OA\Property(property="Password", type="string", example="1234",	description="Password of the customer" ),
-*        )
-*     )),
-*     @OA\Response(
-*         response=200,
-*         description="Customer has been created"
-*     ),
-*     @OA\Response(
-*         response=500,
-*         description="Error"
-*     )
-* )
-*/
-Flight::route('GET /Products/@id/Products', function($id){
+
+Flight::route('GET /products/@id/products', function($id){
   Flight::json(Flight::productService()->get_todos_by_note_id($id));
 });
 
@@ -66,8 +42,33 @@ Flight::route('GET /Products/@id/Products', function($id){
 /**
 * add products
 */
+/**
+* @OA\Post(
+*     path="/products", security={{"ApiKeyAuth": {}}},
+*     description="Add products",
+*     tags={"Products"},
+*     @OA\RequestBody(description="Basic customer info", required=true,
+*       @OA\MediaType(mediaType="application/json",
+*    			@OA\Schema(
+*    				@OA\Property(property="id", type="integer", example="0",	description="ID of product"),
+*    				@OA\Property(property="product_name", type="string", example="test",	description="Surname of the customer" ),
+*           @OA\Property(property="product_type", type="string", example="test",	description="Email of the customer" ),
+*           @OA\Property(property="product_price", type="integer", example="230",	description="Where customer is coming from" ),
+*
+*        )
+*     )),
+*     @OA\Response(
+*         response=200,
+*         description="Product has been created"
+*     ),
+*     @OA\Response(
+*         response=500,
+*         description="Error"
+*     )
+* )
+*/
 
-Flight::route('POST /Products', function(){
+Flight::route('POST /products', function(){
   Flight::json(Flight::productService()->add(Flight::request()->data->getData()));
 });
 
@@ -78,16 +79,17 @@ Flight::route('POST /Products', function(){
 
 /**
 * @OA\Put(
-*     path="/Products/{id}", security={{"ApiKeyAuth": {}}},
+*     path="/products/{id}", security={{"ApiKeyAuth": {}}},
 *     description="Update products data",
 *     tags={"Products"},
 *     @OA\Parameter(in="path", name="id", example=1, description="Note ID"),
 *     @OA\RequestBody(description="Basic product info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
-*    				@OA\Property(property="Name", type="string", example="HP 2034",	description="Name of the product"),
-*    				@OA\Property(property="Type", type="string", example="Laptop",	description="Type of the product" ),
-*           @OA\Property(property="Price", type="string", example="780",	description="Price of the product" ),
+*           @OA\Property(property="id", type="integer", example="0",	description="ID of the product"),
+*    				@OA\Property(property="product_name", type="string", example="HP 2034",	description="Name of the product"),
+*    				@OA\Property(property="product_type", type="string", example="Laptop",	description="Type of the product" ),
+*           @OA\Property(property="product_price", type="string", example="780",	description="Price of the product" ),
 *
 *        )
 *     )),
@@ -101,7 +103,7 @@ Flight::route('POST /Products', function(){
 *     )
 * )
 */
-Flight::route('PUT /Products/@id', function($id){
+Flight::route('PUT /roducts/@id', function($id){
   $data = Flight::request()->data->getData();
   Flight::json(Flight::productService()->update($id, $data));
 });
@@ -111,7 +113,7 @@ Flight::route('PUT /Products/@id', function($id){
 */
 /**
 * @OA\Delete(
-*     path="/Products/{id}", security={{"ApiKeyAuth": {}}},
+*     path="/products/{id}", security={{"ApiKeyAuth": {}}},
 *     description="Soft delete products data",
 *     tags={"Products"},
 *     @OA\Parameter(in="path", name="id", example=1, description="Product ID"),
@@ -125,7 +127,7 @@ Flight::route('PUT /Products/@id', function($id){
 *     )
 * )
 */
-Flight::route('DELETE /Products/@id', function($id){
+Flight::route('DELETE /products/@id', function($id){
   Flight::productService()->delete($id);
   Flight::json(["message" => "deleted"]);
 });

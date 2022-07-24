@@ -7,7 +7,7 @@ class ProductDao extends BaseDao{
   * constructor of dao class
   */
   public function __construct(){
-    parent::__construct("Products");
+    parent::__construct("products");
   }
 
 }
