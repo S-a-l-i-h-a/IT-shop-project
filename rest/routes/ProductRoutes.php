@@ -6,12 +6,12 @@
 * List all products
 */
 /**
- * @OA\Get(path="/products", tags={"Products"},
+ * @OA\Get(path="/products", tags={"Products"},security={{"ApiKeyAuth": {}}},
  *         summary="Return all products from the database ",
  *         @OA\Response( response=200, description="List of products.")
  * )
  */
-Flight::route('GET/products', function(){
+Flight::route('GET /products', function(){
   Flight::json(Flight::productService()->get_all());
 });
 

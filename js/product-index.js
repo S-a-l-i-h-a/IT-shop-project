@@ -45,7 +45,7 @@ var productIndex = {
       },
     });
   },
-  getAllItems: function(search){
+  getAllItems: function(){
     $.ajax({
       url: `rest/products`,
       type: "GET",
@@ -53,7 +53,7 @@ var productIndex = {
         console.log("data");
         var html="";
         for(let i=0;i<data.length;i++){
-          html+=`<div class="container-product-list" data-aos="fade-up">
+          html+=`<div class="container" data-aos="fade-up">
 
             <div class="section-title">
               <h2>Products</h2>
@@ -77,7 +77,7 @@ var productIndex = {
               </div>`;
         }
         $("#container").html(html);
-
-  })
-}
-}
+      }
+    });
+        }
+      }
