@@ -10,6 +10,15 @@ class ProductDao extends BaseDao{
     parent::__construct("products");
   }
 
+  public function getAllProdcuts($search=NULL){
+  $query = "SELECT * FROM products WHERE 0=:num";
+  if(isset($search)){
+    $query .= " AND title LIKE '%".$search."%' ";
+  }
+  return $this->query($query,['num'=>"0"]);
+}
+
+
 }
 
 ?>

@@ -6,12 +6,12 @@
 * List all products
 */
 /**
- * @OA\Get(path="/products", tags={"Products"}, security={{"ApiKeyAuth": {}}},
+ * @OA\Get(path="/products", tags={"Products"},
  *         summary="Return all products from the database ",
  *         @OA\Response( response=200, description="List of products.")
  * )
  */
-Flight::route('GET /products', function(){
+Flight::route('GET/products', function(){
   Flight::json(Flight::productService()->get_all());
 });
 
@@ -90,6 +90,7 @@ Flight::route('POST /products', function(){
 *    				@OA\Property(property="product_name", type="string", example="HP",	description="Name of the product"),
 *    				@OA\Property(property="product_type", type="string", example="Laptop",	description="Type of the product" ),
 *           @OA\Property(property="product_price", type="string", example="300",	description="Price of the product" ),
+*           @OA\Property(property="status", type="string", example="true",	description="Status of the product" ),
 *
 *        )
 *     )),
