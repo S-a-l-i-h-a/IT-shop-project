@@ -1,83 +1,89 @@
+let htmlList = "";
+
 var productIndex = {
   init: function() {
-    productIndex.listItemById();
     productIndex.getAllItems();
 
   },
-  listItemById: function(id){
-    if(id != undefined){
-     var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname;
-     window.history.pushState({ path: refresh }, '', `?id=${id}`);
+  listItemById: function(id) {
+    if (id != undefined) {
+      var refresh = window.location.protocol + "//" + window.location.host + window.location.pathname;
+      window.history.pushState({
+        path: refresh
+      }, '', `?id=${id}`);
 
 
     }
     let searchParams = new URLSearchParams(window.location.search);
     let idUrl = searchParams.get('id');
 
-    var html="";
-
-    $.ajax({
-      url: `rest/products/`,
-      type: "GET",
-      success: function(data) {
-        html=`<!-- Left Column / Motor Image -->
-        <div class="left-column">
-          <img data-image="red" class="active" src="${data.image}" alt="">
-        </div>
+    var html = "";
 
 
-        <!-- Right Column -->
-        <div class="right-column">
-
-          <!-- Product Description -->
-          <div class="product-description">
-            <span>${data.product_type}</span>
-            <h1>${data.product_name}</h1>
-            <p>${data.description}</p>
-          </div>
-
-          <!-- Product Configuration -->
-          <div class="product-configuration">
-
-            `
-        $(".container-article").html(html);
-
-      },
-    });
   },
-  getAllItems: function(){
+  getAllItems: function() {
+
     $.ajax({
       url: `rest/products`,
       type: "GET",
       success: function(data) {
-        console.log("data");
-        var html="";
-        for(let i=0;i<data.length;i++){
-          html+=`<div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-              <h2>Products</h2>
-              <p>Check out our products</p>
-
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-              <div class="col-lg-4 col-md-6 portfolio-item ">
-                <div class="portfolio-wrap">
-                  <div class="portfolio-info">
-                  <img src="${data.image}" class="img-fluid" alt="">
-                  <h4>${data.product_name}</h4>
-                <p>${data.product_price}</p>
-                    <a class="button-xsmall" href="cart.html">Add to cart</a>
-                    <div class="portfolio-links">
-                    <div class="portfolio-links">
-                <a href="${data.image}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="${data.description}" ><i class="bx bx-plus"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>`;
+        console.log(data);
+        var html = "";
+        for (let i = 0; i < data.length; i++) {
+          html += `
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="${data[i].image}" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>${data[i].product_name}</h4>
+                <p>Price: ${data[i].product_price} KM</p>
+                <p>Description: ${data[i].description}</p>
+                <br>
+                <button type="button" style="background-color: black" class="button-xsmall" onclick="getItem(${data[i].id})">Add to cart</button>
+              </div>
+            </div>
+          </div>`;
         }
-        $("#container").html(html);
+        $("#portfolio-container").html(html);
       }
     });
-        }
-      }
+  },
+  getItemsFromCart: function(id){
+    $("#items-list").html("")
+    //We define html list on begining outside this function because
+    //if we define it here it wouldn not be able to "remember" older values
+    $.ajax({
+      url: `rest/products/${id}`,
+      type: "GET",
+      success: function(data) {
+        htmlList += `<li>${data.product_name}, ${data.product_price}KM</li>`
+        $("#items-list").html(htmlList);
+
+      },
+    });
+
+  }
+}
+
+function getItem(id) {
+  let articles = []
+  if (localStorage.getItem("id") != null) {
+    articles = [localStorage.getItem("id")]
+  }
+  articles.push(id)
+  localStorage.setItem("id", articles)
+  console.log(localStorage.getItem("id"));
+  console.log("we set id");
+}
+
+
+function getAllItemsInCart(){
+  htmlList="";
+  let articles = [...localStorage.getItem("id")];
+  articles = articles.filter(num => num != ",")
+
+  for(let i=0;i<articles.length;i++){
+  //console.log(articles[i]);
+  productIndex.getItemsFromCart(articles[i]);
+  }
+}

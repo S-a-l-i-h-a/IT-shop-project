@@ -59,7 +59,8 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="#about" class="get-started-btn scrollto">Your Cart</a>
+
+      <button type="button" class="get-started-btn scrollto" style="background-color: black" name="button" data-bs-toggle="modal" data-bs-target="#user-cart" onclick="getAllItemsInCart()">Your Cart</button>
       <a href="login.html" class="black">Admin Login </a>
 
 
@@ -117,30 +118,30 @@
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-          <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
 
-            <div class="row">
-              <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                <img src="img/itShop.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
-                <h3>ITShop has 7 years of experience in online and offline business.</h3>
-                <p class="fst-italic">
-                  Years of experience are backed by the fact that customers choose ITShop and give us their trust when purchasing IT products.
-                </p>
-                <ul>
-                  <li><i class="ri-check-double-line"></i> We offer you the best products on the market that are quickly and easily available.</li>
-                  <li><i class="ri-check-double-line"></i> A wide range of products that have been carefully selected for our customers.</li>
-                  <li><i class="ri-check-double-line"></i> We offer you all additional products to complete the IT setup in your home.</li>
-                </ul>
-                <p>
-                  Our experienced workers will offer you the best shopping time of your life. They are here at your disposal, to help and to guide you. Feel free to tell us your reviews and impressions.
-                </p>
-              </div>
-            </div>
-
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="img/itShop.jpg" class="img-fluid" alt="">
           </div>
-        </section>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h3>ITShop has 7 years of experience in online and offline business.</h3>
+            <p class="fst-italic">
+              Years of experience are backed by the fact that customers choose ITShop and give us their trust when purchasing IT products.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> We offer you the best products on the market that are quickly and easily available.</li>
+              <li><i class="ri-check-double-line"></i> A wide range of products that have been carefully selected for our customers.</li>
+              <li><i class="ri-check-double-line"></i> We offer you all additional products to complete the IT setup in your home.</li>
+            </ul>
+            <p>
+              Our experienced workers will offer you the best shopping time of your life. They are here at your disposal, to help and to guide you. Feel free to tell us your reviews and impressions.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <!-- End About Section -->
 
     <!-- ======= Clients Section ======= -->
@@ -165,81 +166,81 @@
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
-          <div class="container" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-              <h2>Services</h2>
-              <p>Check our Services</p>
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>Check our Services</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bx-shopping-bag'></i></div>
+              <h4><a href="">Sales Services</a></h4>
+              <p>The best shopping experience is right here with us and you will see why</p>
             </div>
-
-            <div class="row">
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bx-shopping-bag'></i></div>
-                  <h4><a href="">Sales Services</a></h4>
-                  <p>The best shopping experience is right here with us and you will see why</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bx-message-alt'></i></div>
-                  <h4><a href="">Free Advices</a></h4>
-                  <p>We will give you advice on which device suits you, so you can choose best product for you</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bxs-magic-wand'></i></div>
-                  <h4><a href="">Product Maintenance</a></h4>
-                  <p>We offer annual maintenance of your device. If you want to keep track of your device's overall performance, we are here for you</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bx-repeat'></i></div>
-                  <h4><a href="">Repair Services</a></h4>
-                  <p>If you have any problem with your device, contact us for repair</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bxl-product-hunt'></i></div>
-                  <h4><a href="">Product Replacement</a></h4>
-                  <p>We guarantee good product quality, but you can also return the product if you don't like it</p>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-box">
-                  <div class="icon"><i class='bx bx-game'></i></div>
-                  <h4><a href="">Kindness and Friendliness</a></h4>
-                  <p>Kindness is free, and we have plenty of it for you. Because we want our costomers to feel relaxed, our workers are very friendly.</p>
-                </div>
-              </div>
-
-            </div>
-
           </div>
 
-        </section>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bx-message-alt'></i></div>
+              <h4><a href="">Free Advices</a></h4>
+              <p>We will give you advice on which device suits you, so you can choose best product for you</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bxs-magic-wand'></i></div>
+              <h4><a href="">Product Maintenance</a></h4>
+              <p>We offer annual maintenance of your device. If you want to keep track of your device's overall performance, we are here for you</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bx-repeat'></i></div>
+              <h4><a href="">Repair Services</a></h4>
+              <p>If you have any problem with your device, contact us for repair</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bxl-product-hunt'></i></div>
+              <h4><a href="">Product Replacement</a></h4>
+              <p>We guarantee good product quality, but you can also return the product if you don't like it</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class='bx bx-game'></i></div>
+              <h4><a href="">Kindness and Friendliness</a></h4>
+              <p>Kindness is free, and we have plenty of it for you. Because we want our costomers to feel relaxed, our workers are very friendly.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
     <!-- End Services Section -->
 
     <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
-         <div class="container" data-aos="zoom-in">
+      <div class="container" data-aos="zoom-in">
 
-           <div class="text-center">
-             <h3>Contact us for more information</h3>
-             <p>Feel free to send us a message, leave us a comment whether you are satisfied or not with our service. </p>
-             <a class="cta-btn" href="#contact">Contact us</a>
-           </div>
+        <div class="text-center">
+          <h3>Contact us for more information</h3>
+          <p>Feel free to send us a message, leave us a comment whether you are satisfied or not with our service. </p>
+          <a class="cta-btn" href="#contact">Contact us</a>
+        </div>
 
-         </div>
-       </section>
+      </div>
+    </section>
     <!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
@@ -267,9 +268,9 @@
               <div class="portfolio-info">
                 <h4>Laptop HP 15-dy2045nr</h4>
                 <p>Price: 1.500,00 KM </p>
-                <a class="button-xsmall" href="cart.html">Add to cart</a>
+                  <button type="button" style="background-color: black" class="button-xsmall">Add to cart</button>
                 <div class="portfolio-links">
-                  <a href="img/portfolio/Laptop1.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Processor: Intel i5 1135G7 <br>Ram: 8 GB <br>SSD: 256 GB <br>Screen: 15.6'" ><i class="bx bx-plus"></i></a>
+                  <a href="img/portfolio/Laptop1.jpeg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Processor: Intel i5 1135G7 <br>Ram: 8 GB <br>SSD: 256 GB <br>Screen: 15.6'"><i class="bx bx-plus"></i></a>
                 </div>
               </div>
             </div>
@@ -283,12 +284,6 @@
 
       </div>
     </section><!-- End Portfolio Section -->
-
-    <main id="jqueryspapp" role="main">
-  <section id="product" data-load="proy.html"></section>
-  <section id="articlelist" data-load="articlelist.html"></section>
-
-</main>
 
 
     <!-- ======= Counts Section ======= -->
@@ -367,7 +362,7 @@
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                   The advice I got from the workers was very useful and it turned out that I bought the best product for me.
-                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
               </div>
             </div><!-- End testimonial item -->
@@ -497,7 +492,9 @@
         </div>
 
         <div>
-        <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1813.2080395238072!2d18.307023259604584!3d43.82911798212344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758ca153b0b4141%3A0xa88c0704b4efe64e!2sDr.%20Mustafe%20Pintola%2027%2C%20Ilid%C5%BEa%2071210%D8%8C!5e0!3m2!1sen!2sba!4v1658659414392!5m2!1sen!2sba" frameborder="0" allowfullscreen></iframe>
+          <iframe style="border:0; width: 100%; height: 270px;"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1813.2080395238072!2d18.307023259604584!3d43.82911798212344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758ca153b0b4141%3A0xa88c0704b4efe64e!2sDr.%20Mustafe%20Pintola%2027%2C%20Ilid%C5%BEa%2071210%D8%8C!5e0!3m2!1sen!2sba!4v1658659414392!5m2!1sen!2sba"
+            frameborder="0" allowfullscreen></iframe>
         </div>
 
         <div class="row mt-5">
@@ -628,6 +625,75 @@
         <a>Designed by BurchStudent</a>
       </div>
     </div>
+
+    <!--Add to cart modal-->
+    <div class="modal" tabindex="-1" role="dialog" id="user-cart">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color:black">Your Order</h5>
+        <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form >
+      <div class="form-row" >
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Name</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+      </div>
+      <div class="form-group">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Input City">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputState">State</label>
+          <select id="inputState" class="form-control">
+            <option selected>Choose...</option>
+            <option>Federation of Bosnia and Herzegovina</option>
+            <option>RS</option>
+            <option>Brčko Distrikt</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip code</label>
+          <input type="text" class="form-control" id="inputZip"  placeholder="Zip code">
+        </div>
+      </div>
+      <h5 style="color:black;margin-top:20px;">Items: </h5>
+      <div class="form-group"  style="color:black">
+
+
+          <ul id="items-list">
+
+          </ul>
+
+      </div>
+      <button type="submit" class="btn btn-primary">Order now</button>
+    </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
@@ -645,7 +711,16 @@
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
 
-  <script src="js/product-index.js">productIndex.getAllItems()</script>
+
+
+  <!--Jquery files-->
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="js/product-index.js"></script>
+  <script type="text/javascript">
+    productIndex.getAllItems()
+  </script>
 </body>
 
 

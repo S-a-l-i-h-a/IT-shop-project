@@ -23,9 +23,10 @@ Flight::register('productService', 'ProductService');
 
 // middleware method for login
 Flight::route('/*', function(){
+  return TRUE;
   //perform JWT decode
   $path = Flight::request()->url;
-  if ($path == '/login' || $path == '/docs.json' || $path=='/products') return TRUE; // exclude login route from middleware
+  if ($path == '/login' || $path == '/docs.json' || $path=='/products' || $path == '/products/@id') return TRUE; // exclude login route from middleware
 
   $headers = getallheaders();
   if (@!$headers['Authorization']){
