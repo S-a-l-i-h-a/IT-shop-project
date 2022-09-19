@@ -53,9 +53,10 @@ var productIndex = {
   },
   getCart: function(){
       var order = {};
+      order.id = $("#orderId").val();
       order.email = $("#inputEmail4").val();
       order.name = $("#inputName4").val();
-      order.address = $("#inputAddress").val();
+      order.street = $("#inputAddress").val();
       order.floor =$("#inputAddress2").val();
       order.city =$("#inputCity").val();
       order.state =$("#inputState").val();

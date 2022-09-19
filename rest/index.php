@@ -12,12 +12,14 @@ require_once 'dao/BaseDao.class.php';
 
 require_once 'services/CustomerService.class.php';
 require_once 'services/ProductService.class.php';
+require_once 'services/OrderService.class.php';
 require_once __DIR__.'/dao/UserDao.class.php';
 
 
 Flight::register('userDao', 'UserDao');
 Flight::register('customerService', 'CustomerService');
 Flight::register('productService', 'ProductService');
+Flight::register('orderService', 'OrderService');
 
 
 
@@ -55,6 +57,7 @@ Flight::route('GET /docs.json', function(){
 
 require_once 'routes/CustomerRoutes.php';
 require_once 'routes/ProductRoutes.php';
+require_once 'routes/OrderRoutes.php';
 require_once __DIR__.'/routes/UserRoutes.php';
 
 Flight::start();
