@@ -1,8 +1,8 @@
 let htmlList = "";
 
-var productIndex = {
+var productAdmin = {
   init: function() {
-    productIndex.getAllItems();
+    productAdmin.getAllItems();
 
   },
   listItemById: function(id) {
@@ -33,13 +33,13 @@ var productIndex = {
           html += `
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="${data[i].image}" class="img-fluid">
+              <img src="${data[i].image}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>${data[i].product_name}</h4>
                 <p>Price: ${data[i].product_price} KM</p>
                 <p>Description: ${data[i].description}</p>
                 <br>
-                <button type="button" style="background-color: black" class="btn btn-primary" onclick="getItem(${data[i].id})">Add to cart</button>
+                <button type="button" style="background-color: black" class="btn btn-primary" onclick="getItem(${data[i].id})">Delete From Stock</button>
               </div>
             </div>
           </div>`;
@@ -51,30 +51,6 @@ var productIndex = {
       }
     });
   },
-  getCart: function(){
-      var order = {};
-      order.email = $("#inputEmail4").val();
-      order.name = $("#inputName4").val();
-      order.address = $("#inputAddress").val();
-      order.floor =$("#inputAddress2").val();
-      order.city =$("#inputCity").val();
-      order.state =$("#inputState").val();
-      order.zip_code =$("#inputZip").val();
-      order.items = htmlList=""
-      $.ajax({
-        url: `rest/orders`,
-        type: 'POST',
-        data: JSON.stringify(order),
-        contentType: "application/json",
-        dataType: "json",
-
-        success: function(result) {
-          console.log(result);
-          toastr.success("Your order submitted");
-        }
-    });
-  },
-
   getItemsFromCart: function(id){
     $("#items-list").html("")
     //We define html list on begining outside this function because
@@ -88,8 +64,6 @@ var productIndex = {
 
       },
     });
-
-
 
   }
 }
@@ -114,6 +88,6 @@ function getAllItemsInCart(){
 
   for(let i=0;i<articles.length;i++){
   //console.log(articles[i]);
-  productIndex.getItemsFromCart(articles[i]);
+  productAdmin.getItemsFromCart(articles[i]);
   }
 }

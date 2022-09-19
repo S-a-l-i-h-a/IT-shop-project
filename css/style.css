@@ -693,6 +693,7 @@ section {
 }
 .portfolio #portfolio-flters li:last-child {
   margin-right: 0;
+  height: max-content;
 }
 .portfolio .portfolio-wrap {
   transition: 0.3s;
@@ -719,6 +720,7 @@ section {
 .portfolio .portfolio-wrap .portfolio-info {
   opacity: 0;
   position: absolute;
+
   top: 0;
   left: 0;
   right: 0;

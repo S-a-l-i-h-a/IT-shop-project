@@ -7,7 +7,7 @@
 */
 /**
  * @OA\Get(path="/subscription", tags={"subscription"}, security={{"ApiKeyAuth": {}}},
- *         summary="Return all reviews from the database ",
+ *         summary="Return all messages from the database ",
  *         @OA\Response( response=200, description="List of reviews.")
  * )
  */
@@ -41,7 +41,10 @@ Flight::route('GET /subscription/@id', function($id){
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
 *    				@OA\Property(property="id", type="integer", example="0",	description="ID of review"),
+*           @OA\Property(property="name", type="string", example="Mike",	description="Name of clent"),
 *    				@OA\Property(property="email", type="string", example="test@gmail.com",	description="Email of the customer" ),
+*           @OA\Property(property="subject", type="string", example="Product review",	description="Subject of message"),
+*           @OA\Property(property="message", type="string", example="products are the best one I have buy until now",	description="Message from client"),
 *
 *
 *        )
@@ -75,8 +78,12 @@ Flight::route('POST /subscription', function(){
 *     @OA\RequestBody(description="Basic review info", required=true,
 *       @OA\MediaType(mediaType="application/json",
 *    			@OA\Schema(
-*           @OA\Property(property="id", type="integer", example="0",	description="ID of review"),
+*    				@OA\Property(property="id", type="integer", example="0",	description="ID of review"),
+*           @OA\Property(property="name", type="string", example="Mike",	description="Name of clent"),
 *    				@OA\Property(property="email", type="string", example="test@gmail.com",	description="Email of the customer" ),
+*           @OA\Property(property="subject", type="string", example="Product review",	description="Subject of message"),
+*           @OA\Property(property="message", type="string", example="products are the best one I have buy until now",	description="Message from client"),
+
 *
 *        )
 *     )),

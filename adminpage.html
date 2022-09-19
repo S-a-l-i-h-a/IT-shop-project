@@ -57,6 +57,7 @@
       </nav><!-- .navbar -->
 
       <a href="login.html" class="get-started-btn scrollto">Log out</a>
+        <button type="button" class="get-started-btn scrollto" style="background-color: black" name="button" data-bs-toggle="modal" data-bs-target="#user-cart" onclick="getAllItemsInCart()">Product Deletion</button>
     <!--  <a href="#logout" class="get-started-btn scrollto">Logout</a>   -->
 
 
@@ -263,14 +264,11 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Laptop/PC</li>
-              <li data-filter=".filter-card">Mobile</li>
-              <li data-filter=".filter-web">Accessories</li>
             </ul>
           </div>
         </div>
 
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <div id="portfolio-container" class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
@@ -285,18 +283,6 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/sluse1.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Apple Studio 3 Headphones</h4>
-                <p>Price: 620KM</p>
-                <br>
-                <a class="button-xsmall" href="#">Delete from stock</a>
-
-              </div>
-            </div>
-          </div>
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
@@ -350,42 +336,6 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/samsung.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Samsung Galaxy S22 Plus 5G</h4>
-                <p>Price: 2.260,00 KM</p>
-                <br>
-                <a class="button-xsmall" href="#">Delete from stock</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/xiaomi.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Xiaomi</h4>
-                <p>Price: 2.149,00 KM</p>
-                <br>
-                <a class="button-xsmall" href="#">Delete from stock</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="img/portfolio/sat.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Amazfit GTS 3</h4>
-                <p>Price: 305,00 KM</p>
-                <br>
-                <a class="button-xsmall" href="#">Delete from stock</a>
-
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -745,6 +695,41 @@
     </div>
   </footer><!-- End Footer -->
 
+
+  <!--Add to cart modal-->
+  <div class="modal" tabindex="-1" role="dialog" id="user-cart">
+
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" style="color:black">Product Deletion</h5>
+      <button type="button" class="close" data-dismiss="modal"  aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <br>
+
+        <div class="modal-body">
+
+
+    <h5 style="color:black;margin-top:20px;">Items: </h5>
+    <div class="form-group"  style="color:black">
+
+
+        <ul id="items-list">
+
+        </ul>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Delete Nows</button>
+  </form>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -755,11 +740,21 @@
   <script src="theme/glightbox/js/glightbox.min.js"></script>
   <script src="theme/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="theme/swiper/swiper-bundle.min.js"></script>
-  <script src="theme/php-email-form/validate.js"></script>
-  <script type="text/javascript" src="js/ITShopService.js"></script>
+
 
   <!-- Template Main JS File -->
   <script src="js/main.js"></script>
+
+  <!--Jquery files-->
+  <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script src="js/product-admin.js"></script>
+  <script type="text/javascript">
+    productAdmin.getAllItems()
+  </script>
+
+
 
 
 
