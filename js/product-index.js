@@ -51,9 +51,26 @@ var productIndex = {
       }
     });
   },
+
+  getItemsFromCart: function(id){
+    $("#items-list").html("")
+    //We define html list on begining outside this function because
+    //if we define it here it wouldn not be able to "remember" older values
+    $.ajax({
+      url: `rest/products/${id}`,
+      type: "GET",
+      success: function(data) {
+        htmlList += `<li>${data.product_name}, ${data.product_price}KM</li>`
+        $("#items-list").html(htmlList);
+
+      },
+
+    });
+
+  },
   getCart: function(){
       var order = {};
-      order.id = $("#orderId").val();
+
       order.email = $("#inputEmail4").val();
       order.name = $("#inputName4").val();
       order.street = $("#inputAddress").val();
@@ -74,25 +91,8 @@ var productIndex = {
           toastr.success("Your order submitted");
         }
     });
-  },
-
-  getItemsFromCart: function(id){
-    $("#items-list").html("")
-    //We define html list on begining outside this function because
-    //if we define it here it wouldn not be able to "remember" older values
-    $.ajax({
-      url: `rest/products/${id}`,
-      type: "GET",
-      success: function(data) {
-        htmlList += `<li>${data.product_name}, ${data.product_price}KM</li>`
-        $("#items-list").html(htmlList);
-
-      },
-    });
-
-
-
   }
+  
 }
 
 function getItem(id) {
