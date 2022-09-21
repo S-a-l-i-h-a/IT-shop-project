@@ -78,7 +78,9 @@ var productIndex = {
       order.city =$("#inputCity").val();
       order.state =$("#inputState").val();
       order.zip_code =$("#inputZip").val();
-      order.items = htmlList=""
+      order.items = $("#items-list").val();
+
+
       $.ajax({
         url: `rest/orders`,
         type: 'POST',
@@ -90,9 +92,10 @@ var productIndex = {
           console.log(result);
           toastr.success("Your order submitted");
         }
+
     });
   }
-  
+
 }
 
 function getItem(id) {
